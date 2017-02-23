@@ -1,5 +1,7 @@
 package cs.personal.ecommerce.service;
 
+import java.util.List;
+
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,5 +20,7 @@ public interface IMemberService {
 	public Resource loadFile(String fileName);
 	public void deleteAll();
 	public void init();
+	
+	public List<Member> getAllMembers();
 
 }

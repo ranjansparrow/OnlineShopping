@@ -19,16 +19,15 @@ import cs.personal.ecommerce.service.IMemberService;
 
 @Controller
 public class MemberController {
-	
-	 
-	 
+
 	    List<String> files = new ArrayList<String>();
 	
 	@Autowired
 	IMemberService memberService;
 	@RequestMapping("/hello")
-	public String hello(){
+	public String hello(Model model,Member member){
 		
+		model.addAttribute("members",memberService.getAllMembers());
 		return "hello";
 	}
 	
