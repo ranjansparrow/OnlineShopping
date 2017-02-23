@@ -1,9 +1,10 @@
 package cs.personal.ecommerce.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 
 @Entity
 public class Product {
@@ -12,7 +13,7 @@ public class Product {
 	private long id;
 	private Double price;
 	private String name;
-	@OneToOne
+	@Enumerated(EnumType.STRING)
 	private Category category;
 	public long getId() {
 		return id;
@@ -38,6 +39,7 @@ public class Product {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
+	
 	
 	
 }
