@@ -3,6 +3,8 @@ package cs.personal.ecommerce.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -47,6 +49,23 @@ public class MemberController {
         }
        
 		memberService.save(member);
+		return "login";
+	}
+	
+	@RequestMapping(value = "/login",method = RequestMethod.GET)
+	public String login(){
+		return "login";
+	}
+	
+	@RequestMapping(value = "/login" , method = RequestMethod.POST)
+	public String afterlogin(Model model , HttpServletRequest request){
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		
+		String dbpass = memberService.findPassword(username);
+		if(dbpass.equals(password)){
+			return "hello";
+		}
 		return "login";
 	}
 }

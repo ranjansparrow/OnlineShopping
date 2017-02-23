@@ -74,6 +74,11 @@ public class MemberService implements IMemberService {
 		public List<Member> getAllMembers() {
 			return (List<Member>) memberrepo.findAll();
 		}
+		@Override
+		public String findPassword(String username) {
+			
+			return memberrepo.checkPassword(username);
+		}
 
 	
 

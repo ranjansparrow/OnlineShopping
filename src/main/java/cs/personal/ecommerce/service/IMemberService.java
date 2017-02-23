@@ -22,5 +22,7 @@ public interface IMemberService {
 	public void init();
 	
 	public List<Member> getAllMembers();
+	
+	public String findPassword(String username);
 
 }
