@@ -33,7 +33,7 @@ public class MemberService implements IMemberService {
 		
 	}
 	 Logger log = LoggerFactory.getLogger(this.getClass().getName());
-	    private final Path rootLocation = Paths.get("images");
+	    private final Path rootLocation = Paths.get("src/main/resources/static/images");
 	 @Override
 	    public void store(MultipartFile file){
 	        try {
