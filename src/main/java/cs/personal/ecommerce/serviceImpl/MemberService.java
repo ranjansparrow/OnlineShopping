@@ -31,7 +31,7 @@ public class MemberService implements IMemberService {
 		member.setImageUpload(time+".jpg");
 		memberrepo.save(member);
 		
-	}
+	} 
 	 Logger log = LoggerFactory.getLogger(this.getClass().getName());
 	    private final Path rootLocation = Paths.get("src/main/resources/static/images");
 	 @Override

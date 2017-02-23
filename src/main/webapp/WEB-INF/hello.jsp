@@ -6,6 +6,6 @@
     <title>Hello</title>
 </head>
 <body>
-    <img alt="Db image" src="/images/1487885494006.jpg">
+    <img alt="Db image" src="/images/1487885494006.jpg"> 
 </body>
 </html>
