@@ -15,7 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import cs.personal.ecommerce.domain.Member;
 import cs.personal.ecommerce.service.IMemberService;
-import cs.personal.ecommerce.service.StorageService;
+
 
 @Controller
 public class MemberController {

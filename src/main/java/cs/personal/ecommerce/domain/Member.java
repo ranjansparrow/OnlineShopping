@@ -20,6 +20,7 @@ public class Member {
 	private String username;
 	private String password;
 	private Date dateOfBirth;
+	private String imageUpload;
 	public long getId() {
 		return id;
 	}
@@ -62,8 +63,11 @@ public class Member {
 	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
+	public String getImageUpload() {
+		return imageUpload;
+	}
+	public void setImageUpload(String imageUpload) {
+		this.imageUpload = imageUpload;
+	}
 	
-	
-	
-
 }
