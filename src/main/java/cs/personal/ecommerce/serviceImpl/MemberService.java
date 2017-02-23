@@ -24,9 +24,11 @@ import cs.personal.ecommerce.service.IMemberService;
 public class MemberService implements IMemberService {
 	@Autowired
 	IMemberRepo memberrepo;
-
+	String time = String.valueOf(System.currentTimeMillis());
+	
 	@Override
 	public void save(Member member) {
+		member.setImageUpload(time+".jpg");
 		memberrepo.save(member);
 		
 	}
@@ -35,7 +37,8 @@ public class MemberService implements IMemberService {
 	 @Override
 	    public void store(MultipartFile file){
 	        try {
-	            Files.copy(file.getInputStream(), this.rootLocation.resolve(file.getOriginalFilename()));
+	        	System.out.println("while saving image" + time);
+	            Files.copy(file.getInputStream(), this.rootLocation.resolve(time+".jpg"));
 	        } catch (Exception e) {
 	            throw new RuntimeException("FAIL!");
 	        }
