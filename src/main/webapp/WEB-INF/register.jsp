@@ -25,7 +25,7 @@
 				</h4>
 				or go back to our <a href="/">main site</a>.
 			</div>
-
+			${message}
 			<div class="modal-body">
 				<div class="row">
 					<div class="well">
@@ -67,7 +67,7 @@
 									</label>
 								</div>
 								<div class="col-lg-8">
-									<form:input id="firstName" path="username"
+									<form:input id="username" path="username"
 										placeholder="Please enter username" type="text"
 										class="form-control" value="" />
 									<span class="help-block"></span>
@@ -81,8 +81,8 @@
 									</label>
 								</div>
 								<div class="col-lg-8">
-									<form:input id="firstName" path="password"
-										placeholder="Please enter password" type="text"
+									<form:input id="password" path="password"
+										placeholder="Please enter password" type="password"
 										class="form-control" value="" />
 									<span class="help-block"></span>
 								</div>

@@ -38,7 +38,7 @@ public class MemberService implements IMemberService {
 	 @Override
 	    public void store(MultipartFile file){
 	        try {
-	        	System.out.println("while saving image" + time);
+	        	
 	            Files.copy(file.getInputStream(), this.rootLocation.resolve(time+".jpg"));
 	        } catch (Exception e) {
 	            throw new RuntimeException("FAIL!");
@@ -78,6 +78,11 @@ public class MemberService implements IMemberService {
 		public String findPassword(String username) {
 			
 			return memberrepo.checkPassword(username);
+		}
+		@Override
+		public String findUsername(String username) {
+			
+			return memberrepo.checkusername(username);
 		}
 
 	

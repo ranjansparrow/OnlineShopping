@@ -47,7 +47,13 @@ public class MemberController {
         } catch (Exception e) {
             model.addAttribute("message", "FAIL to upload " + file.getOriginalFilename() + "!");
         }
-       
+		String formusername = member.getUsername();
+		String dbusername = memberService.findUsername(member.getUsername());
+		if(formusername.equals(dbusername)){
+			model.addAttribute("message","Username already exists");
+			return "register";
+		}
+		System.out.println("Db username"+dbusername);
 		memberService.save(member);
 		return "login";
 	}

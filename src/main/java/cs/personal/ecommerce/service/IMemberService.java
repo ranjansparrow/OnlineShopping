@@ -24,5 +24,6 @@ public interface IMemberService {
 	public List<Member> getAllMembers();
 	
 	public String findPassword(String username);
+	public String findUsername(String username);
 
 }
