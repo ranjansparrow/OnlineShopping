@@ -14,15 +14,7 @@ import cs.personal.ecommerce.domain.Member;
 @Transactional
 public interface IMemberService {
 	public void save(Member member);
-	
-	public void store(MultipartFile file);
-	
-	public Resource loadFile(String fileName);
-	public void deleteAll();
-	public void init();
-	
 	public List<Member> getAllMembers();
-	
 	public String findPassword(String username);
 	public String findUsername(String username);
 

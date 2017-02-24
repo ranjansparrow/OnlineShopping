@@ -1,4 +1,4 @@
-package cs.personal.ecommerce.service;
+package cs.personal.ecommerce.serviceImpl;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -13,22 +13,24 @@ import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.FileSystemUtils;
 import org.springframework.web.multipart.MultipartFile;
+
+import cs.personal.ecommerce.service.IStorageService;
  
  
 @Service
-public class StorageService {
+public class StorageService implements IStorageService {
      
     Logger log = LoggerFactory.getLogger(this.getClass().getName());
-    private final Path rootLocation = Paths.get("images");
- 
-    public void store(MultipartFile file){
+    private final Path rootLocation = Paths.get("src/main/resources/static/images");
+    @Override
+    public void store(MultipartFile file,String time){
         try {
-            Files.copy(file.getInputStream(), this.rootLocation.resolve(file.getOriginalFilename()));
+            Files.copy(file.getInputStream(), this.rootLocation.resolve(time+".jpg"));
         } catch (Exception e) {
             throw new RuntimeException("FAIL!");
         }
     }
- 
+    @Override
     public Resource loadFile(String filename) {
         try {
             Path file = rootLocation.resolve(filename);
@@ -42,11 +44,11 @@ public class StorageService {
             throw new RuntimeException("FAIL!");
         }
     }
-     
+    @Override
     public void deleteAll() {
         FileSystemUtils.deleteRecursively(rootLocation.toFile());
     }
- 
+    @Override
     public void init() {
         try {
             Files.createDirectory(rootLocation);

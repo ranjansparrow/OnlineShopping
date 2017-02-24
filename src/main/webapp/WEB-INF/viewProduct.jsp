@@ -12,6 +12,7 @@
 					<th>Name</th>
 					<th>Price</th>
 					<th>Category</th>
+					<th>Image </th>
 				</tr>
 			</thead>
 			<tbody>
@@ -20,6 +21,8 @@
 						<td><c:out value="${products.name}" /></td>
 						<td><c:out value="${products.price}" /></td>
 						<td><c:out value="${products.category}" /></td>
+						<td><c:out value="${products.category}" /></td>
+						<td><img src = "/images/${products.imageUpload}" height="100px" /> </td>
 						<td><a class="btn btn-danger btn-xs"
 							href="<c:url value='/remove/${donor.id}' />"><span
 								class="glyphicon glyphicon-trash"></span></a></td>

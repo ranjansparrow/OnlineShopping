@@ -30,7 +30,7 @@
 				<div class="row">
 					<div class="well">
 						<form:form modelAttribute="member" class="form-horizontal"
-							action="register" method="POST" enctype="multipart/form-data">
+							action="register" method="POST">
 							<div class="form-group">
 
 								<div class="col-lg-4">
@@ -102,7 +102,7 @@
 								</div>
 								
 							</div>
-						<span>File To Upload:</span>	<input type="file" name="file" />
+						
 							<input type = "submit" value = "Register" >
 						</form:form>
 					</div>

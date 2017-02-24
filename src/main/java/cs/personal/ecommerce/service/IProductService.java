@@ -10,7 +10,7 @@ import cs.personal.ecommerce.domain.Product;
 @Service
 @Transactional
 public interface IProductService {
-	public void save(Product product);
+	public void save(Product product,String time);
 	public List<Product> findAllProduct();
 
 }

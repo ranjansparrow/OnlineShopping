@@ -4,7 +4,7 @@
 <title>Add Product</title>
 </head>
 <body>
-	<form:form name="addProduct" method="POST" action="saveProduct" modelAttribute="product">
+	<form:form name="addProduct" method="POST" action="saveProduct" modelAttribute="product" enctype="multipart/form-data">
 		<label>Name</label>
 		<form:input path="name" /> <br>
 		<label>Price</label>
@@ -17,6 +17,7 @@
 			</form:select>
 			<span class="help-block"></span>
 		</div>
+		<span>File To Upload:</span>	<input type="file" name="file" />
 		<input type = "submit" value = "Add Product" />
 	</form:form>
 </body>

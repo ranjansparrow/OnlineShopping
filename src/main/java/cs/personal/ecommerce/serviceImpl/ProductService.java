@@ -16,7 +16,8 @@ public class ProductService implements IProductService {
 	@Autowired
 	IProductRepo productrepo;
 	@Override
-	public void save(Product product) {
+	public void save(Product product,String time) {
+		product.setImageUpload(time+".jpg");
 		productrepo.save(product);
 		
 	}

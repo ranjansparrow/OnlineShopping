@@ -15,6 +15,7 @@ public class Product {
 	private String name;
 	@Enumerated(EnumType.STRING)
 	private Category category;
+	private String imageUpload;
 	public long getId() {
 		return id;
 	}
@@ -39,7 +40,12 @@ public class Product {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
-	
+	public String getImageUpload() {
+		return imageUpload;
+	}
+	public void setImageUpload(String imageUpload) {
+		this.imageUpload = imageUpload;
+	}
 	
 	
 }
