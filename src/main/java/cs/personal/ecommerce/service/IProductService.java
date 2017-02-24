@@ -12,5 +12,6 @@ import cs.personal.ecommerce.domain.Product;
 public interface IProductService {
 	public void save(Product product,String time);
 	public List<Product> findAllProduct();
+	public Product findOneProduct(long id);
 
 }

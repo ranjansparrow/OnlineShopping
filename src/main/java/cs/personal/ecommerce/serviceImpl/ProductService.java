@@ -26,5 +26,10 @@ public class ProductService implements IProductService {
 		
 		return (List<Product>) productrepo.findAll();
 	}
+	@Override
+	public Product findOneProduct(long id) {
+		
+		return productrepo.findOne(id);
+	}
 
 }
