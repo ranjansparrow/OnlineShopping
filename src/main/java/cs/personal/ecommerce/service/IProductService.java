@@ -14,4 +14,5 @@ public interface IProductService {
 	public List<Product> findAllProduct();
 	public Product findOneProduct(long id);
 
+
 }

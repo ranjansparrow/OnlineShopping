@@ -7,6 +7,7 @@
 <form method = "POST" action = "myCart">
 			<a href = "/myCart">View My Cart</a>
 		</form>
+		 
 	<div class="table-responsive">
 		<table class="table table-condensed table-bordered table-hover">
 			<thead class="">

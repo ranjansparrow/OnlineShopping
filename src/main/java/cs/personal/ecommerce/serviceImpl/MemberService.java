@@ -44,4 +44,9 @@ public class MemberService implements IMemberService {
 		return memberrepo.findIdByUsername(username);
 	}
 
+	@Override
+	public Member findOneMember(long id) {
+		return memberrepo.findOne(id);
+	}
+
 }

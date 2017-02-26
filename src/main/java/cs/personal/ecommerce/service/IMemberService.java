@@ -18,5 +18,6 @@ public interface IMemberService {
 	public String findPassword(String username);
 	public String findUsername(String username);
 	public long getIdByUsername(String username);
+	public Member findOneMember(long id);
 
 }

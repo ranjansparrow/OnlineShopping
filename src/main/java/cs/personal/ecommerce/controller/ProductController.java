@@ -16,13 +16,15 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import cs.personal.ecommerce.domain.Member;
 import cs.personal.ecommerce.domain.OrderLine;
 import cs.personal.ecommerce.domain.Product;
+import cs.personal.ecommerce.service.IMemberService;
 import cs.personal.ecommerce.service.IOrderLineService;
 import cs.personal.ecommerce.service.IProductService;
 import cs.personal.ecommerce.service.IStorageService;
 
-@SessionAttributes("listofProducts")
+@SessionAttributes({"listofProducts","userId"})
 @Controller
 public class ProductController {
 	List<String> files = new ArrayList<String>();
@@ -32,7 +34,9 @@ public class ProductController {
 	IProductService productService;
 	@Autowired
 	IOrderLineService orderLineService;
-
+	
+	@Autowired
+	IMemberService memberService;
 	List<Product> listOfProducts = new ArrayList();
 
 	@RequestMapping(value = "/addProduct")
@@ -85,10 +89,28 @@ public class ProductController {
 		return "myCart";
 	}
 
-	@RequestMapping(value = "/checkout")
-	public String checkOut(OrderLine orderLine) {
-
-		orderLineService.save(orderLine, listOfProducts);
+	@RequestMapping(value = "/checkout/{userId}")
+	public String checkOut(OrderLine orderLine ,@PathVariable("userId") long id) {
+		Member member  = memberService.findOneMember(id);
+		orderLineService.save(orderLine, listOfProducts,member);
 		return "redirect:/login";
+	}
+	
+	@RequestMapping(value = "/cartRemove/{productId}")
+	public String removeCart(@PathVariable("productId") long id){
+		
+		int i = (int) id-1;
+		Product dbProduct = productService.findOneProduct(id);
+		System.out.println("trying to delete id "+listOfProducts.remove(dbProduct.getId()));
+		System.out.println("trying to delete the product"+listOfProducts.remove(dbProduct));
+		System.out.println("trying to delete from the index"+listOfProducts.remove(i));
+	
+		
+		System.out.println("I am int" + i);
+		System.out.println("The id is "+id);
+		for(Product pr:listOfProducts){
+			System.out.println(pr.getId());
+		}
+		return "redirect:/myCart";
 	}
 }
