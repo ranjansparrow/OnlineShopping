@@ -91,11 +91,11 @@
 							<div class="form-group">
 
 								<div class="col-lg-4">
-									<label class="control-label" for="dateOfbirth"> Full Name
+									<label class="control-label" for="dateOfbirth"> Date Of Birth
 									</label>
 								</div>
 								<div class="col-lg-8">
-									<form:input id="firstName" path="dateOfBirth"
+									<form:input id="dob" path="dateOfBirth"
 										placeholder="Please enter Date Of Birth" type="text"
 										class="form-control" value="" />
 									<span class="help-block"></span>

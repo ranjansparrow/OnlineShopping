@@ -39,4 +39,9 @@ public class MemberService implements IMemberService {
 		return memberrepo.checkusername(username);
 	}
 
+	@Override
+	public long getIdByUsername(String username) {
+		return memberrepo.findIdByUsername(username);
+	}
+
 }

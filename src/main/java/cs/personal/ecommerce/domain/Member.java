@@ -1,10 +1,14 @@
 package cs.personal.ecommerce.domain;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -20,6 +24,8 @@ public class Member {
 	private String username;
 	private String password;
 	private Date dateOfBirth;
+	@OneToMany(mappedBy="member")
+	private List<OrderLine> order;
 	
 	public long getId() {
 		return id;
@@ -62,6 +68,12 @@ public class Member {
 	}
 	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
+	}
+	public List<OrderLine> getOrder() {
+		return order;
+	}
+	public void setOrder(List<OrderLine> order) {
+		this.order = order;
 	}
 	
 	

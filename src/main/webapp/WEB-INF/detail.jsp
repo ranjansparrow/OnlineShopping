@@ -9,7 +9,7 @@
 		<span> Category</span> ${product.category} <br>
 		<span>Image</span> <img src = "/images/${product.imageUpload}" height="100px" >
 		<br>
-		<a href = "/addToCart"> Add to Cart</a>
+		<a href = "/addToCart/${product.id}"> Add to Cart</a>
 		
 	</body>
 </html>

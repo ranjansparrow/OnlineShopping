@@ -8,10 +8,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import cs.personal.ecommerce.domain.Member;
 import cs.personal.ecommerce.service.IMemberService;
 
+@SessionAttributes("userId")
 @Controller
 public class MemberController {
 
@@ -41,7 +43,7 @@ public class MemberController {
 		}
 
 		memberService.save(member);
-		return "login";
+		return "redirect:/login";
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -53,11 +55,18 @@ public class MemberController {
 	public String afterlogin(Model model, HttpServletRequest request) {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-
+		
 		String dbpass = memberService.findPassword(username);
 		if (dbpass.equals(password)) {
-			return "dashboard";
+			long dbId = memberService.getIdByUsername(username);
+			model.addAttribute("userId",dbId);
+			
+			return "redirect:/dashboard";
 		}
-		return "login";
+		return "redirect:/login";
+	}
+	@RequestMapping(value="/dashboard")
+	public String showdashboard(){
+		return "dashboard";
 	}
 }

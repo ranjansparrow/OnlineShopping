@@ -14,5 +14,8 @@ public interface IMemberRepo extends CrudRepository<Member, Long> {
 	
 	@Query("select username from Member m where m.username = :username")
 	public String checkusername(@Param("username") String username);
+	
+	@Query("select id from Member m where m.username = :username")
+	public long findIdByUsername(@Param("username") String username);
 
 }
